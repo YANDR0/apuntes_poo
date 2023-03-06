@@ -1,10 +1,10 @@
-package test_4;
+package tests;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 
-public class Main {
+public class test_4 {
 
     public static void main(String[] args){
 
@@ -26,9 +26,6 @@ public class Main {
         //getDayOfYear, getDayOfWeek, getMonth, getDayOfMonth
 
         //plusWeeks y similares no modifican objetos, crean uno nuevo
-
-
-
 
     }
 }

@@ -1,8 +1,9 @@
-package test_5;
+package tests;
 
-public class Main {
-
+public class test_5 {
     public static void main(String[] args){
+
+
 
 
 

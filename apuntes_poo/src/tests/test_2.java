@@ -1,10 +1,8 @@
-package test_2;
+package tests;
 
 import shapes2d.Rectangle;
 
-import javax.swing.*;
-
-public class Main {
+public class test_2 {
     public static void main(String[] args) {
 
         Rectangle r1 = new Rectangle(4,2);

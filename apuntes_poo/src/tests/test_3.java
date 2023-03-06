@@ -1,8 +1,8 @@
-package test_3;
+package tests;
 
 import rgb.RGBCOLOR;
 
-public class Main {
+public class test_3 {
 
     public static void main(String[] args) {
         RGBCOLOR c1 = new RGBCOLOR();

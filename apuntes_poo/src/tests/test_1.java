@@ -1,8 +1,8 @@
-package test_1;
+package tests;
 
 import javax.swing.JOptionPane;
 
-public class Main {
+public class test_1 {
 
     public static void main(String[] args) {
         //ejercicio_1();
