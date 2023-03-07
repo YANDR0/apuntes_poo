@@ -58,13 +58,18 @@ public class DateTime extends Date{
     @Override
     public String toString() {
         int opc = getFormat();
+        String time;
+        if(opc == 1) {
+            time = String.format("[%01d:%02d:%02d] ", this.hours, this.minutes, this.seconds);
+            return time + super.toString();
+        }
 
-        if(opc == 2)
-            return String.format("[%02d, %02d, %02d] %s", this.hours, this.minutes, this.seconds);
+        if(this.hours > 12)
+            time = String.format("[%01d:%02d:%02d PM] ", this.hours - 12, this.minutes, this.seconds);
         else
-            return String.format("[%02d, %02d, %02d] %s", this.hours, this.minutes, this.seconds);
+            time = String.format("[%01d:%02d:%02d AM] ", this.hours, this.minutes, this.seconds);
 
-
+        return time + super.toString();
     }
 
 
