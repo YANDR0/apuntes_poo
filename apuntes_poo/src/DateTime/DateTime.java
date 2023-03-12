@@ -15,16 +15,20 @@ public class DateTime extends Date{
         setMinutes(mi);
         setSeconds(ss);
     }
+
     public DateTime(){
     }
 
     public DateTime(Date d){
-        super(d.getDay(), d.getMonth(), d.getDay());
+        setDay(d.getDay());
+        setMonth(d.getMonth());
+        setYear(d.getYear());
     }
 
-    public DateTime toSystemTime(){
-        return  new DateTime();     //LUEGO LO HAGO BIEN
-    }
+    public void toSystemTime(){
+
+    }   //LUEGO LO HAGO
+
 
     // --------------- SETTERS ---------------
     public void setHours(int hours) {
@@ -55,21 +59,63 @@ public class DateTime extends Date{
         return seconds;
     }
 
+    // --------------- ToSTRING ---------------
     @Override
     public String toString() {
         int opc = getFormat();
         String time;
-        if(opc == 1) {
+        if(opc == 0) {
             time = String.format("[%01d:%02d:%02d] ", this.hours, this.minutes, this.seconds);
             return time + super.toString();
         }
 
-        if(this.hours > 12)
+        if(this.hours == 0)
+            time = String.format("[%01d:%02d:%02d AM] ", this.hours + 12, this.minutes, this.seconds);
+        else if(this.hours > 12)
             time = String.format("[%01d:%02d:%02d PM] ", this.hours - 12, this.minutes, this.seconds);
         else
             time = String.format("[%01d:%02d:%02d AM] ", this.hours, this.minutes, this.seconds);
 
         return time + super.toString();
+    }
+
+    // --------------- EQUALS, CLONE, NEXT Y TODATE---------------
+
+    @Override
+    public boolean equals(Object o){
+        if(!(o instanceof DateTime)) return false;
+        DateTime d = (DateTime) o;
+        return super.equals(d) && this.hours == d.hours && this.minutes == d.minutes && this.seconds == d.seconds;
+    }
+
+    @Override
+    public DateTime clone(){
+        return new DateTime(this.hours, this.minutes, this.seconds, this.getDay(), this.getMonth(), this.getYear());
+    }
+
+    @Override
+    public void next(){
+        if(this.seconds < 59)
+            this.seconds ++;
+        else if (this.minutes < 59) {
+            this.minutes++;
+            this.seconds = 0;
+        }
+        else if (this.hours < 23) {
+            this.hours++;
+            this.minutes = 0;
+            this.seconds = 0;
+        }
+        else {
+            super.next();
+            this.hours = 0;
+            this.minutes = 0;
+            this.seconds = 0;
+        }
+    }
+
+    public Date toDate(){
+        return new Date(this.getDay(), this.getMonth(), this.getYear());
     }
 
 
