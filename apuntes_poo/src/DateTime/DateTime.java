@@ -97,6 +97,7 @@ public class DateTime extends Date{
     public void next(){
         if(this.seconds < 59)
             this.seconds ++;
+
         else if (this.minutes < 59) {
             this.minutes++;
             this.seconds = 0;
