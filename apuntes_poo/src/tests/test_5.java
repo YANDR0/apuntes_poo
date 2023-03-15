@@ -27,7 +27,13 @@ public class test_5 {
 
         Date[] s = {time1, time2, date3, time4, date5};
 
-        for (Date d:s){ for(int i = 0; i < 3; i++){ d.setFormat(i); System.out.print(d + ", "); } }
+        for (Date d:s){
+            for(int i = 0; i < 3; i++){
+                d.setFormat(i);
+                System.out.print(d + ", ");
+            }
+            System.out.println();
+        }
     }
 
 }

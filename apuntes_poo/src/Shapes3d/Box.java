@@ -26,11 +26,11 @@ public class Box extends Shapes3D{
 
     @Override
     public double area(){
-        return 1;
+        return 2*(this.widht * this.height + this.widht * this.large + this.height * this.large);
     }
 
     @Override
     public double volume(){
-        return 1;
+        return this.widht * this.height * this.large;
     }
 }
