@@ -30,7 +30,7 @@ public abstract class Shapes3D {
 
     @Override
     public String toString() {
-        return "a";
+        return String.format("Ubicación: <%.2f, %.2f, %.2f> \nArea: %.2f \nVolumen: %.2f", this.x, this.y, this.z, this.area(), volume()) ;
     }                       //LUEGO LE MUEVO
 
     public abstract double area();
